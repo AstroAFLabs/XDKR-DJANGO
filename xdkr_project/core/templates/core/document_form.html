@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+	
+	<h2>Submit A New Document</h2>
+	<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <label for="id_files">Upload files:</label>
+    <input type="file" name="files" multiple id="id_files">
+    <button type="submit">Save Document to Database</button>
+</form>
+
+
+	<ul>
+		{% for document in documents %}
+			<li>
+				{{ document.title }} -
+				<a href="{% url 'document_read' document.pk %}">Read</a> |
+				<a href="{% url 'document_update' document.pk %}">Update</a> | 
+				<a href="{% url 'document_delete' document.pk %}">Delete</a>
+			</li>
+		{% endfor %}
+	</ul>
+		
+
+	
+
+{% endblock %}
+
+
+

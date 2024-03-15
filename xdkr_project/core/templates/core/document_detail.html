@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+	<h2>Document Details</h2>
+	
+	<ul>
+		
+			<li>{{ document.title }} - </li>
+			<li>{{ document.content}} - </li>
+			<li>{{ document.created_at | date:" D d M Y"}} - </li>
+			<li>{{ document.updated_at | date:" D d M Y"}} </li>
+		
+	</ul>
+
+
+	
+
+
+<a href="{% url 'document_create' %}">Create New Document</a>
+{% endblock %}

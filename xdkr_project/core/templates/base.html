@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<link rel="stylesheet" href="{% static './css/NSWDB.css' %}"> 
+<title>{% block title %}XDKR Repo{% endblock title %}</title>
+    {% block extrahead %}Narula Family Important Stuff{% endblock extrahead %}
+</head>
+</head>
+<body>
+    <header>
+	
+        
+    </header>
+    {% block content %}
+	
+	 {% endblock content %}
+    <footer>
+        <p>This is a generic and currently pointless message. </p>
+        </footer>
+    <form>
+        <!-- Your form elements go here -->
+    </form>
+    
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.7/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.7/dist/js/uikit-icons.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<main>
+<div>
+	<h2>Document List</h2>
+	<a href="{% url 'document_create' %}">Create New Document</a>
+	
+		<div class="styled-table">	
+	<ul>
+		{% for document in documents %}
+			<li>
+				{{ document.title }} -
+				
+				<hr>
+				<a href="{% url 'document_read' document.pk %}">Read</a> |
+				<a href="{% url 'document_update' document.pk %}">Update</a> | 
+				<a href="{% url 'document_delete' document.pk %}">Delete</a> |
+				<a href="{% url 'serve_document' document.pk %}">View Document</a>
+
+			</li>
+		{% endfor %}
+	</ul>
+	</div>
+	{{ form.as_p }}
+	<form method="get">
+    <input type="text" name="search" placeholder="Search documents...">
+	<div class="styled-table">
+    {% for tag in tags %}
+        <label>
+            <input type="checkbox" name="tags" value="{{ tag.name }}"> {{ tag.name }}
+        </label>
+		
+    {% endfor %}
+	</div>
+    <button type="submit">Submit Search Query</button>
+</form>
+</div>
+</main>
+
+{% endblock %}
